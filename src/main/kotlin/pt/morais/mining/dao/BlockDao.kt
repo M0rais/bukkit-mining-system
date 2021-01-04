@@ -5,7 +5,7 @@ import pt.morais.mining.Mining
 
 class BlockDao(plugin: Mining) {
 
-    private val blocks = mutableMapOf<Material?, BlockModel?>();
+    private val blocks = mutableMapOf<Material?, BlockModel?>()
 
     fun get(material: Material?): BlockModel? = blocks[material]
 
