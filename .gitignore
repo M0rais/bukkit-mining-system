@@ -1,0 +1,9 @@
+/**/build/
+/**/target/
+/**/.idea/
+/**/.vscode/
+/**/.gradle/
+
+/**/.env*
+
+!/**/.env.example
