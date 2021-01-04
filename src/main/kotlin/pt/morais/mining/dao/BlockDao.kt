@@ -7,7 +7,7 @@ class BlockDao(plugin: Mining) {
 
     private val blocks = mutableMapOf<Material?, BlockModel?>()
 
-    fun get(material: Material?): BlockModel? = blocks[material]
+    operator fun get(material: Material?): BlockModel? = blocks[material]
 
     init {
         val config = plugin.config
