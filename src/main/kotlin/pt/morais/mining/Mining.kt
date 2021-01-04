@@ -1,5 +1,6 @@
 package pt.morais.mining
 
+import net.milkbowl.vault.economy.Economy
 import org.bukkit.plugin.java.JavaPlugin
 import pt.morais.mining.dao.BlockDao
 import pt.morais.mining.listener.BlockBreak
@@ -7,14 +8,15 @@ import pt.morais.mining.listener.BlockBreak
 class Mining : JavaPlugin() {
 
     lateinit var blockDao: BlockDao
+    val economy = getProvider<Economy>("Vault")
 
     override fun onEnable() {
         saveDefaultConfig()
         blockDao = BlockDao(this)
-        BlockBreak(this)
+        server.pluginManager.registerEvents(BlockBreak(this), this)
     }
 
-    inline fun <reified T> getProvider(plugin: String): T = requireNotNull(
+    private inline fun <reified T> getProvider(plugin: String): T = requireNotNull(
         server
             .servicesManager
             .getRegistration(T::class.java)

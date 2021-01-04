@@ -9,11 +9,7 @@ import pt.morais.mining.Mining
 class BlockBreak(private val plugin: Mining) : Listener {
 
     private val blockDao get() = plugin.blockDao
-    private val economy = plugin.getProvider<Economy>("Vault")
-
-    init {
-        plugin.server.pluginManager.registerEvents(this, plugin)
-    }
+    private val economy = plugin.economy
 
     @EventHandler
     fun onBreak(event: BlockBreakEvent) {
