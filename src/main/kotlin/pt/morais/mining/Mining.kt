@@ -4,6 +4,7 @@ import net.milkbowl.vault.economy.Economy
 import org.bukkit.plugin.java.JavaPlugin
 import pt.morais.mining.dao.BlockDao
 import pt.morais.mining.listener.BlockBreak
+import pt.morais.mining.process.BlockProcess
 
 class Mining : JavaPlugin() {
 
@@ -12,7 +13,8 @@ class Mining : JavaPlugin() {
 
     override fun onEnable() {
         saveDefaultConfig()
-        blockDao = BlockDao(this)
+        blockDao = BlockDao()
+        BlockProcess(this)
         server.pluginManager.registerEvents(BlockBreak(this), this)
     }
 
