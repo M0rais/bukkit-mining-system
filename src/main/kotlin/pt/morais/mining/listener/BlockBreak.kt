@@ -17,7 +17,7 @@ class BlockBreak(plugin: Mining) : Listener {
     init {
         plugin.server.pluginManager.registerEvents(this, plugin);
         vaultHook = VaultHook(plugin)
-        blockDao = plugin.blockDao
+        blockDao = BlockDao(plugin)
     }
 
     @EventHandler
