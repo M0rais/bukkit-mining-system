@@ -19,7 +19,7 @@ class BlockBreak(private val plugin: Mining) : Listener {
         val money = blockModel.money
         val player = event.player
 
-        player.sendMessage("§aYou won $${money} because you breaked ${blockModel.display}")
+        player.sendMessage("§aYou won $${money} because you broke ${blockModel.display}")
         economy.depositPlayer(player, money)
     }
 
